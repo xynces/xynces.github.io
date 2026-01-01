@@ -8,8 +8,4 @@ Draggable tabs to reorder resources in tabs view.
 
 Multiple color themes (light/dark) and layout options (narrow, stacked, tabs, or all resources).
 
-Keyboard navigation and smooth animated output.
-
-Exportable resource totals for easy copy-paste.
-
-Select your preferred theme and layout.
+Exportable for easy copy-paste
