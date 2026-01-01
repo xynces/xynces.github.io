@@ -16,17 +16,11 @@ const container = document.getElementById("container");
 const overlay = document.getElementById("chip-swap-overlay");
 const fmt = n => new Intl.NumberFormat().format(n);
 
-// Initialize RRR input
 const rrrInput = document.getElementById('rrrInput');
-rrrInput.value = localStorage.getItem('globalRRR') || 36.7; // default 36.7%
+rrrInput.value = localStorage.getItem('globalRRR') || 36.7;
 
-// Update RRR when user changes value
-// Allow typing freely, clamp only on blur
 rrrInput.addEventListener('input', () => {
-  // Store raw input without clamping
   localStorage.setItem('globalRRR', rrrInput.value);
-
-  // Recalculate outputs immediately
   materials.forEach(mat => updateOutputs(mat));
 });
 
@@ -37,7 +31,6 @@ rrrInput.addEventListener('blur', () => {
   rrrInput.value = val;
   localStorage.setItem('globalRRR', val);
 });
-
 
 let pendingFocus = null;
 
@@ -195,7 +188,7 @@ function animateSwap(fromIdx, toIdx){
     });
   });
 }
-<!-- KOD NA HEE I DRAGGING SON TEEN -->
+// KOD NA HEE I DRAGGING SON TEEN
 let draggingId = null;
 
 function createChips(list, activeMat, callback){
@@ -337,9 +330,9 @@ const rrr = Number(localStorage.getItem('globalRRR') || 36.7) / 100;
 
 for (const t of tiers) {
   if (need[t] > 0) {
-    const effective = need[t] * (1 - rrr); // effective required after RRR
-    out[t] += Math.round(effective * cost[t]); // output cost for this tier
-    if (down[t]) need[down[t]] += effective;  // propagate down to next tier
+    const effective = need[t] * (1 - rrr);
+    out[t] += Math.round(effective * cost[t]);
+    if (down[t]) need[down[t]] += effective;
   }
 }
 
@@ -376,5 +369,6 @@ function doExport(all){
 
 document.addEventListener('click', e=>{ document.querySelectorAll('.menu').forEach(menu=>{ if(!menu.contains(e.target)) menu.classList.remove('open'); }); });
 document.addEventListener('keydown', e=>{ if(e.ctrlKey && e.key==='Backspace'){ e.preventDefault(); clearAll(); } });
+
 
 (function init(){ render(); })();</script><footer class="credit-footer"><a href="https://www.youtube.com/@xynces.L" target="_blank">1b3d4f</a></footer></body></html>
