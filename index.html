@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resource Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="header__title">
+        <div class="header__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 4h8v12H8z"></path>
+            <path d="M12 16v4"></path>
+            <path d="M8 20h8"></path>
+            <path d="M6 6l-2 2"></path>
+            <path d="M18 6l2 2"></path>
+          </svg>
+        </div>
+        Resource Planner
+      </h1>
+
+      <div class="header__menu">
+        <div class="export-wrap">
+          <button class="header__button" id="exportButton" title="Export formatted markdown to clipboard">
+            <span class="btn-label">Export</span>
+          </button>
+          <div id="exportTooltip" role="status" aria-live="polite">Copied!</div>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme">
+          <svg id="lightIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="darkIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="appContent"></div>
+  </div>
+
+  <div id="renameModal" class="modal">
+    <div class="modal__content">
+      <h3 class="modal__title">Rename Tab</h3>
+      <input type="text" id="renameInput" class="modal__input" placeholder="Enter tab name" />
+      <div class="modal__buttons">
+        <button class="modal__button modal__button--confirm" id="confirmRename">Rename</button>
+        <button class="modal__button modal__button--cancel" id="cancelRename">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
